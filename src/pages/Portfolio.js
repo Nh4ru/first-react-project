@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Cards from "../components/Cards";
+import Pagination from "../components/Pagination";
 
 const Portfolio = () => {
     //On déclare la variable Joke ET sa fonction /méthode setJoke
@@ -51,22 +52,31 @@ const Portfolio = () => {
                     </div>
                 </div>
                 <div className="row">
+                    <div className="col">
+                        <Pagination />
+                    </div>
+                </div>
+                <div className="row">
 
                     {
                         gallery.map(item => {
-                            let source = `https://picsum.photos/id/${item.id}/300/200`;
+                            let source = `https://picsum.photos/id/${item.id}/640/320`;
                             let title = `Picture by : ${item.author}`;
-                            let height = `Height : ${item.height}px`;
-                            let width = `Width : ${item.width}px`;
-                            
+                            let dim = { 'Height': item.height, 'Width': item.width };
+                            let download = item.download_url;
+
                             return (
-                                <Cards source={source} title={title} height={height} width={width}/>
+                                <Cards source={source} title={title} dim={dim} download={download} />
                             )
                         })
                     }
 
                 </div>
-
+                <div className="row">
+                    <div className="col">
+                        <Pagination />
+                    </div>
+                </div>
             </div>
         </section>
     )
