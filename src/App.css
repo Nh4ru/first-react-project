@@ -12,3 +12,10 @@
     transform: rotate(360deg);
   }
 }
+
+/* Cards Portfolio */
+div.cards{
+  text-align: center;
+}
+
+/* Footer */
